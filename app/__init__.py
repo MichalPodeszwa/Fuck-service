@@ -7,10 +7,8 @@ app.config.from_object('config')
 
 with open('app/static/forms.txt') as forms_file:
     forms_file = json.load(forms_file)
-    # print forms_file
 with open('app/static/single_forms.txt') as single_forms_file:
     single_forms_file = json.load(single_forms_file)
-    # print single_forms_file
 
 mongo = PyMongo(app, config_prefix='MONGO')
 from app import views
