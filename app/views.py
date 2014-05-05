@@ -29,6 +29,25 @@ def stats():
                            tos=tos)
 
 
+
+
+def increment(username, user_from):
+    if user_from:
+        stat = mongo.db.stats.froms.find_one({"name": username})
+    else:
+        stat = mongo.db.stats.tos.find_one({"name": username})
+    if stat:
+        stat["amount"] += 1
+        if user_from:
+            mongo.db.stats.froms.update({"_id": ObjectId(stat["_id"])}, stat)
+        else:
+            mongo.db.stats.tos.update({"_id": ObjectId(stat["_id"])}, stat)
+    else:
+        if user_from:
+            mongo.db.stats.froms.insert({"name": username, "amount": 1})
+        else:
+            mongo.db.stats.tos.insert({"name": username, "amount": 1})
+
 @app.route('/<form_name>/<per_to>/<per_from>')
 @mimerender(
     default="txt",
@@ -39,25 +58,8 @@ def stats():
 )
 def fuck_off(form_name, per_to, per_from):
 
-    if mongo.db.stats.froms.find_one({"name": per_from}):
-        stat = mongo.db.stats.froms.find_one({"name": per_from})
-        try:
-            stat["amount"] += 1
-        except KeyError:
-            stat["amount"] = 1
-        mongo.db.stats.froms.update({"_id": ObjectId(stat["_id"])}, stat)
-    else:
-        mongo.db.stats.froms.insert({"name": per_from, "amount": 1})
-
-    if mongo.db.stats.tos.find_one({"name": per_to}):
-        stat = mongo.db.stats.tos.find_one({"name": per_to})
-        try:
-            stat["amount"] += 1
-        except KeyError:
-            stat["amount"] = 1
-        mongo.db.stats.tos.update({"_id": ObjectId(stat["_id"])}, stat)
-    else:
-        mongo.db.stats.tos.insert({"name": per_to, "amount": 1})
+    increment(per_from, True)
+    increment(per_to, False)
 
     if form_name not in forms_file:
         raise NotFound()
@@ -77,15 +79,8 @@ def fuck_off(form_name, per_to, per_from):
 )
 @app.route('/<form_name>/<per_from>')
 def fuck_off_single(form_name, per_from):
-    if mongo.db.stats.froms.find_one({"name": per_from}):
-        stat = mongo.db.stats.froms.find_one({"name": per_from})
-        try:
-            stat["amount"] += 1
-        except KeyError:
-            stat["amount"] = 1
-        mongo.db.stats.froms.update({"_id": ObjectId(stat["_id"])}, stat)
-    else:
-        mongo.db.stats.froms.insert({"name": per_from, "amount": 1})
+    
+    increment(per_from, True)
 
     if form_name in single_forms_file:
         return render_template(
