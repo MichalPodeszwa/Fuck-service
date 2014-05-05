@@ -1,0 +1,14 @@
+<html>
+	<body>
+	Fucks were given by<br>
+	{% for pers in froms %}
+		{{pers.name}} {{pers.amount}} times<br>
+	{% endfor %}
+	<BR><BR>
+	Fucks were received by<br>
+	{% for pers in tos %}
+		{{pers.name}} {{pers.amount}} time<br>
+	{% endfor %}
+	<BR><BR>
+	</body>
+</html>
