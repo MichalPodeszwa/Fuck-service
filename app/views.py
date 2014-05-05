@@ -4,7 +4,7 @@ from app import app, mongo, single_forms_file, forms_file
 from werkzeug.exceptions import NotFound
 import mimerender
 import json
-
+from bson.objectid import ObjectId
 
 mimerender = mimerender.FlaskMimeRender()
 
@@ -20,43 +20,79 @@ def index(*args, **kwargs):
     return "Use proper URLs"
 
 
+@app.route('/stats')
+def stats():
+    froms = mongo.db.stats.froms.find({})
+    tos = mongo.db.stats.tos.find({})
+    return render_template("stats.html",
+                           froms=froms,
+                           tos=tos)
+
 
 @app.route('/<form_name>/<per_to>/<per_from>')
 @mimerender(
-    default = "txt",
-    html = render_html,
-    xml  = render_xml,
-    json = render_json,
-    txt  = render_txt
+    default="txt",
+    html=render_html,
+    xml=render_xml,
+    json=render_json,
+    txt=render_txt
 )
 def fuck_off(form_name, per_to, per_from):
-    if form_name in forms_file:
-        return {"content": forms_file[form_name].format(
-            per_to=per_to,
-            per_from=per_from)}
-        return render_template(
-            "base.html",
-            content=forms_file[form_name].format(
-                per_to=per_to,
-                per_from=per_from)
-        )
+
+    if mongo.db.stats.froms.find_one({"name": per_from}):
+        stat = mongo.db.stats.froms.find_one({"name": per_from})
+        try:
+            stat["amount"] += 1
+        except KeyError:
+            stat["amount"] = 1
+        mongo.db.stats.froms.update({"_id": ObjectId(stat["_id"])}, stat)
     else:
+        mongo.db.stats.froms.insert({"name": per_from, "amount": 1})
+
+    if mongo.db.stats.tos.find_one({"name": per_to}):
+        stat = mongo.db.stats.tos.find_one({"name": per_to})
+        try:
+            stat["amount"] += 1
+        except KeyError:
+            stat["amount"] = 1
+        mongo.db.stats.tos.update({"_id": ObjectId(stat["_id"])}, stat)
+    else:
+        mongo.db.stats.tos.insert({"name": per_to, "amount": 1})
+
+    if form_name not in forms_file:
         raise NotFound()
 
+    return {"content": forms_file[form_name].format(
+        per_to=per_to,
+        per_from=per_from)
+    }
+
+
 @mimerender(
-    default = 'html',
-    html = render_html,
-    xml  = render_xml,
-    json = render_json,
-    txt  = render_txt
+    default='html',
+    html=render_html,
+    xml=render_xml,
+    json=render_json,
+    txt=render_txt
 )
 @app.route('/<form_name>/<per_from>')
 def fuck_off_single(form_name, per_from):
+    if mongo.db.stats.froms.find_one({"name": per_from}):
+        stat = mongo.db.stats.froms.find_one({"name": per_from})
+        try:
+            stat["amount"] += 1
+        except KeyError:
+            stat["amount"] = 1
+        mongo.db.stats.froms.update({"_id": ObjectId(stat["_id"])}, stat)
+    else:
+        mongo.db.stats.froms.insert({"name": per_from, "amount": 1})
+
     if form_name in single_forms_file:
         return render_template(
             "base.html",
             content=single_forms_file[form_name].format(
-            per_from=per_from)
+                per_from=per_from
+            )
         )
     else:
         raise NotFound()
