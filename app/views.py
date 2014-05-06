@@ -61,8 +61,6 @@ def increment(username, user_from):
     txt=render_txt
 )
 def fuck_off(form_name, per_to, per_from):
-    no
-
     increment(per_from, True)
     increment(per_to, False)
 
