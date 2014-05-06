@@ -18,4 +18,6 @@
 	"boehner": "While thousands of programs and employees were deemed 'non-essential' and suspended or furloughed, one of the few government costs deemed essential to maintain during the shutdown has been the Congressional gym. Oh no, please, don't get out of the pool, Mr. Boehner. This fuck you is waterproof. <br>- {per_from}",
 
 	"malcolmtucker": "I will tear your fucking skin off, I will wear it to your mother's birthday party and rub your nuts up and down her leg whilst whistling Bohemian fucking Rhapsody. Right? <br>- {per_from}"
+
+	"everyone": "Everyone can go and fuck off. <br>- {per_from}",
 }

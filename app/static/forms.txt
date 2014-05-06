@@ -5,8 +5,6 @@
 
 	"agileorbit": "{per_to}, you can agile orbit Shaun's ass <br>- {per_from}",
 
-	"everyone": "Everyone can go and fuck off. <br>- {per_from}",
-
 	"shakespeare": "{per_to}, Thou clay-brained guts, thou knotty-pated fool, thou whoreson obscene greasy tallow-catch! <br>- {per_from}",
 
 	"arthur": "How shall {per_to} fuck off, O Lord? <br>- {per_from}",
@@ -21,7 +19,7 @@
 
 	"you": "Fuck you, {per_to}. <br>- {per_from}",
 
-	"linus": "{per_to}, there aren't enough swear-words in the English language, so now I'll have to call you perkeleen just to express my disgust and frustration with this crap. <br>- {per_from}",
+	"linus": "{per_to}, there aren't enough swear-words in the English language, so now I'll have to call you perkeleen vittupää just to express my disgust and frustration with this crap. <br>- {per_from}",
 
 	"ceccoangiolieri": "to, s'i' so' buon begolardo, - tu me ne tien' ben la lancia a le reni; - s'i' desno con altrui, e tu vi ceni; - s'io mordo 'l grasso, e tu vi sughi el lardo; - s'io cimo 'l panno, e tu vi freghi el cardo. <br>- {per_from}",
 
