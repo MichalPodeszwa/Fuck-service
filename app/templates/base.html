@@ -1,8 +1,5 @@
-<html>
-	<head>
-		<title> FUCK OFF</title>
-	</head>
-	<body>
-		{{content}}
-	</body>
-</html>
+{% extends "_base.html" %}
+
+{% block content %}
+{{content|safe}}
+{% endblock %}

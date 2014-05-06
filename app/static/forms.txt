@@ -1,29 +1,29 @@
 {
-	"chainsaw": "Fuck me gently with a chainsaw, {per_to}. Do i look like Mother Teresa? - {per_from}",
+	"chainsaw": "Fuck me gently with a chainsaw, {per_to}. Do I look like Mother Teresa? <br>- {per_from}",
 	
-	"steviewonder": "I just called, to say..........{per_to} FUCK OFF! - {per_from}",
+	"steviewonder": "I just called, to say..........{per_to} FUCK OFF! <br>- {per_from}",
 
-	"agileorbit": "{per_to}, you can agile orbit Shaun's ass - {per_from}",
+	"agileorbit": "{per_to}, you can agile orbit Shaun's ass <br>- {per_from}",
 
-	"everyone": "Everyone can go and fuck off. - {per_from}",
+	"everyone": "Everyone can go and fuck off. <br>- {per_from}",
 
-	"shakespeare": "{per_to}, Thou clay-brained guts, thou knotty-pated fool, thou whoreson obscene greasy tallow-catch! - {per_from}",
+	"shakespeare": "{per_to}, Thou clay-brained guts, thou knotty-pated fool, thou whoreson obscene greasy tallow-catch! <br>- {per_from}",
 
-	"arthur": "How shall {per_to} fuck off, O Lord? - {per_from}",
+	"arthur": "How shall {per_to} fuck off, O Lord? <br>- {per_from}",
 
-	"donut": "to, go and take a flying fuck at a rolling donut. - {per_from}",
+	"donut": "to, go and take a flying fuck at a rolling donut. <br>- {per_from}",
 
-	"blink182": "I want to fuck a {per_to} in the {per_from} - That's right kids",
+	"blink182": "I want to fuck a {per_to} in the {per_from} <br>- That's right kids",
 
-	"off": "Fuck off, {per_to}. - {per_from}",
+	"off": "Fuck off, {per_to}. <br>- {per_from}",
 
-	"king": "Oh fuck off, just really fuck off you total dickface. Christ {per_to}, you are fucking thick. - {per_from}",
+	"king": "Oh fuck off, just really fuck off you total dickface. Christ {per_to}, you are fucking thick. <br>- {per_from}",
 
-	"you": "Fuck you, {per_to}. - {per_from}",
+	"you": "Fuck you, {per_to}. <br>- {per_from}",
 
-	"linus": "{per_to}, there aren't enough swear-words in the English language, so now I'll have to call you perkeleen just to express my disgust and frustration with this crap. - {per_from}",
+	"linus": "{per_to}, there aren't enough swear-words in the English language, so now I'll have to call you perkeleen just to express my disgust and frustration with this crap. <br>- {per_from}",
 
-	"ceccoangiolieri": "to, s'i' so' buon begolardo, - tu me ne tien' ben la lancia a le reni; - s'i' desno con altrui, e tu vi ceni; - s'io mordo 'l grasso, e tu vi sughi el lardo; - s'io cimo 'l panno, e tu vi freghi el cardo. - {per_from}",
+	"ceccoangiolieri": "to, s'i' so' buon begolardo, - tu me ne tien' ben la lancia a le reni; - s'i' desno con altrui, e tu vi ceni; - s'io mordo 'l grasso, e tu vi sughi el lardo; - s'io cimo 'l panno, e tu vi freghi el cardo. <br>- {per_from}",
 
-	"keepcalm": "Keep Calm {per_to} and Fuck Off - {per_from}"
+	"keepcalm": "Keep Calm {per_to} and Fuck Off <br>- {per_from}"
 }

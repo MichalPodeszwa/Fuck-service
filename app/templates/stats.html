@@ -1,14 +1,17 @@
-<html>
-	<body>
-	Fucks were given by<br>
+{% extends "_base.html" %}
+
+{%block content%}
+	Fucks were given by:<br>
+	<ul>
 	{% for pers in froms %}
-		{{pers.name}} {{pers.amount}} times<br>
+		<li>{{pers.name}} {{pers.amount}} time(s)</li>
 	{% endfor %}
+	</ul>
 	<BR><BR>
 	Fucks were received by<br>
+	<ul>
 	{% for pers in tos %}
-		{{pers.name}} {{pers.amount}} time<br>
+		<li>{{pers.name}} {{pers.amount}} time(s)</li>
 	{% endfor %}
-	<BR><BR>
-	</body>
-</html>
+	</ul>
+{% endblock %}

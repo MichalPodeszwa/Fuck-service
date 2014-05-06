@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, request, jsonify
+from flask import render_template, request, jsonify, flash, redirect
 from app import app, mongo, single_forms_file, forms_file
 from werkzeug.exceptions import NotFound
 import mimerender
@@ -15,9 +15,14 @@ render_txt = lambda content: content
 
 
 @app.errorhandler(404)
+def error(*args, **kwargs):
+    flash("Use proper URLs")
+    return redirect ('/')
+
 @app.route('/')
 def index(*args, **kwargs):
-    return "Use proper URLs"
+    return render_template("base.html", 
+            content="Use proper url!")
 
 
 @app.route('/stats')
@@ -71,7 +76,6 @@ def fuck_off(form_name, per_to, per_from):
 
 
 @mimerender(
-    default='html',
     html=render_html,
     xml=render_xml,
     json=render_json,
