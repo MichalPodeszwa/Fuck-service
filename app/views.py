@@ -17,12 +17,12 @@ render_txt = lambda content: content
 @app.errorhandler(404)
 def error(*args, **kwargs):
     flash("Use proper URLs")
-    return redirect ('/')
+    return redirect('/')
+
 
 @app.route('/')
 def index(*args, **kwargs):
-    return render_template("base.html", 
-            content="Use proper url!")
+    return render_template("index.html")
 
 
 @app.route('/stats')
@@ -32,8 +32,6 @@ def stats():
     return render_template("stats.html",
                            froms=froms,
                            tos=tos)
-
-
 
 
 def increment(username, user_from):
@@ -53,6 +51,7 @@ def increment(username, user_from):
         else:
             mongo.db.stats.tos.insert({"name": username, "amount": 1})
 
+
 @app.route('/<form_name>/<per_to>/<per_from>')
 @mimerender(
     default="txt",
@@ -62,6 +61,7 @@ def increment(username, user_from):
     txt=render_txt
 )
 def fuck_off(form_name, per_to, per_from):
+    no
 
     increment(per_from, True)
     increment(per_to, False)
@@ -83,7 +83,7 @@ def fuck_off(form_name, per_to, per_from):
 )
 @app.route('/<form_name>/<per_from>')
 def fuck_off_single(form_name, per_from):
-    
+
     increment(per_from, True)
 
     if form_name in single_forms_file:

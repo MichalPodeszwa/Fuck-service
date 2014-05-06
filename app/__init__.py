@@ -12,5 +12,3 @@ with open('app/static/single_forms.txt') as single_forms_file:
 
 mongo = PyMongo(app, config_prefix='MONGO')
 from app import views
-
-
