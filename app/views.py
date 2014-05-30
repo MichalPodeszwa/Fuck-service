@@ -53,6 +53,7 @@ def increment(username, user_from):
 
 
 @app.route('/<form_name>/<per_to>/<per_from>')
+@app.route('/<form_name>/<per_from>')
 @mimerender(
     default="txt",
     html=render_html,
@@ -60,36 +61,22 @@ def increment(username, user_from):
     json=render_json,
     txt=render_txt
 )
-def fuck_off(form_name, per_to, per_from):
+def fuck_off(form_name, per_from, per_to=None):
     increment(per_from, True)
-    increment(per_to, False)
+    if per_to:
+        increment(per_to, False)
 
     if form_name not in forms_file:
-        raise NotFound()
-
-    return {"content": forms_file[form_name].format(
-        per_to=per_to,
-        per_from=per_from)
-    }
-
-
-@mimerender(
-    html=render_html,
-    xml=render_xml,
-    json=render_json,
-    txt=render_txt
-)
-@app.route('/<form_name>/<per_from>')
-def fuck_off_single(form_name, per_from):
-
-    increment(per_from, True)
-
-    if form_name in single_forms_file:
-        return render_template(
-            "base.html",
-            content=single_forms_file[form_name].format(
+        if form_name not in single_forms_file:
+            return "NOPE"
+            raise NotFound()
+    if per_to:
+        return {"content": forms_file[form_name].format(
+            per_to=per_to,
+            per_from=per_from)
+        }
+    else:
+        return {"content": single_forms_file[form_name].format(
                 per_from=per_from
             )
-        )
-    else:
-        raise NotFound()
+        }
