@@ -13,10 +13,10 @@
 		Here is a list of possible URLs, see for yourself what each does.
 		<ul>
             {% for name in doubles %}
-                <li><a href="/{{ name }}/TO/FROM">/{{ name }}/&lt;TO&gt;/&lt;FROM&gt;</a></li>
+                <li><a href="{{ url_for('give_a_fuck', form_name=name, person_to="TO", person_from="FROM") }}">{{ url_for('give_a_fuck', form_name=name, person_to="_TO_", person_from="_FROM_") }}</a></li>
             {% endfor %}
             {% for name in singles %}
-                <li><a href="/{{ name }}/FROM">/{{ name }}/&lt;FROM&gt;</a></li>
+                <li><a href="{{ url_for('give_a_fuck', form_name=name, person_from="FROM") }}">{{ url_for('give_a_fuck', form_name=name, person_from="_FROM_") }}</a></li>
             {% endfor %}
 		</ul>
 	</p>
