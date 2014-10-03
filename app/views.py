@@ -25,23 +25,3 @@ def give_a_fuck(form_name, person_from, person_to=None):
         "output.html",
         content=content
     )
-
-
-# @app.route('/<form_name>/<per_to>/<per_from>')
-# @app.route('/<form_name>/<per_from>')
-# def fuck_off(form_name, per_from, per_to=None):
-
-#     if form_name not in forms_file:
-#         if form_name not in single_forms_file:
-#             return "NOPE"
-#             raise NotFound()
-#     if per_to:
-#         return {"content": forms_file[form_name].format(
-#             per_to=per_to,
-#             per_from=per_from)
-#         }
-#     else:
-#         return {"content": single_forms_file[form_name].format(
-#                 per_from=per_from
-#                 )
-#         }
