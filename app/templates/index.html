@@ -1,40 +1,23 @@
 {% extends "_base.html" %}
 
 {% block content %}
-	<h1>Fuck off as a Service</h1><br>
+	<h1>Fuck off as a Service</h1>
 
 	<h2>Introduction</h2>
 	<p>
 		Fuck off as a Service is a website for solving your everyday problem - How to tell people to fuck off.
 	</p>
-	<br>
 	<h2>How to use it?</h2>
 	<p>
 		You just type in a proper URL, and everything is done for you!<br>
 		Here is a list of possible URLs, see for yourself what each does.
 		<ul>
-			<li><a href="/chainsaw/TO/FROM">/chainsaw/&lt;TO&gt;/&lt;FROM&gt;</a></li>
-			<li><a href="/steviewonder/TO/FROM">/steviewonder/&lt;TO&gt;/&lt;FROM&gt;</a></li>
-			<li><a href="/agileorbit/TO/FROM">/agileorbit/&lt;TO&gt;/&lt;FROM&gt;</a></li>
-			<li><a href="/shakespeare/TO/FROM">/shakespeare/&lt;TO&gt;/&lt;FROM&gt;</a></li>
-			<li><a href="/arthur/TO/FROM">/arthur/&lt;TO&gt;/&lt;FROM&gt;</a></li>
-			<li><a href="/donut/TO/FROM">/donut/&lt;TO&gt;/&lt;FROM&gt;</a></li>
-			<li><a href="/blink182/TO/FROM">/blink182/&lt;TO&gt;/&lt;FROM&gt;</a></li>
-			<li><a href="/off/TO/FROM">/off/&lt;TO&gt;/&lt;FROM&gt;</a></li>
-			<li><a href="/king/TO/FROM">/king/&lt;TO&gt;/&lt;FROM&gt;</a></li>
-			<li><a href="/linus/TO/FROM">/linus/&lt;TO&gt;/&lt;FROM&gt;</a></li>
-			<li><a href="/ceccoangiolieri/TO/FROM">/ceccoangiolieri/&lt;TO&gt;/&lt;FROM&gt;</a></li>
-			<li><a href="/keepcalm/TO/FROM">/keepcalm/&lt;TO&gt;/&lt;FROM&gt;</a></li>
-			<li><a href="/that/FROM">/that/&lt;FROM&gt;</a></li>
-			<li><a href="/everyone/FROM">/everyone/&lt;FROM&gt;</a></li>
-			<li><a href="/pink/FROM">/pink/&lt;FROM&gt;</a></li>
-			<li><a href="/this/FROM">/this/&lt;FROM&gt;</a></li>
-			<li><a href="/everything/FROM">/everything/&lt;FROM&gt;</a></li>
-			<li><a href="/justinbieber/FROM">/justinbieber/&lt;FROM&gt;</a></li>
-			<li><a href="/thanks/FROM">/thanks/&lt;FROM&gt;</a></li>
-			<li><a href="/boehner/FROM">/boehner/&lt;FROM&gt;</a></li>
-			<li><a href="/malcolmtucker/FROM">/malcolmtucker/&lt;FROM&gt;</a></li>
-			<li><a href="/everyone/FROM">/everyone/&lt;FROM&gt;</a></li>
+            {% for name in doubles %}
+                <li><a href="/{{ name }}/TO/FROM">/{{ name }}/&lt;TO&gt;/&lt;FROM&gt;</a></li>
+            {% endfor %}
+            {% for name in singles %}
+                <li><a href="/{{ name }}/FROM">/{{ name }}/&lt;FROM&gt;</a></li>
+            {% endfor %}
 		</ul>
 	</p>
 	<br>
