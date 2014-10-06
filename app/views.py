@@ -1,6 +1,7 @@
 from flask import render_template
 from app import app, single_forms_file, forms_file
 from werkzeug.exceptions import NotFound
+from .utils import increment
 
 
 @app.route('/')
@@ -21,6 +22,9 @@ def give_a_fuck(form_name, person_from, person_to=None):
         content = forms_file[form_name].format(person_from=person_from, person_to=person_to)
     else:
         raise NotFound()
+
+    increment(person_from, person_to)
+
     return render_template(
         "output.html",
         content=content

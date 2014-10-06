@@ -1,13 +1,15 @@
 from flask import Flask
-from pymongo import MongoClient
 import json
-from . import utils
-from . import config
+from sqlalchemy import create_engine
+from . import utils, config
+from .models import DBSession, Base
 
 utils.config_init()
 
 app = Flask(__name__)
-db = MongoClient()
+engine = create_engine(config.DB_URL)
+DBSession.configure(bind=engine)
+Base.metadata.bind = engine
 
 with open(config.DOUBLE_FORMS) as forms_file:
     forms_file = json.load(forms_file)
