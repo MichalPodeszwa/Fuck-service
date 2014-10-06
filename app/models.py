@@ -18,5 +18,3 @@ class Person(Base):
         self.name = name
         self.fucks_given = 0
         self.fucks_taken = 0
-
-

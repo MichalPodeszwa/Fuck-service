@@ -2,6 +2,7 @@ from flask import render_template
 from app import app, single_forms_file, forms_file
 from werkzeug.exceptions import NotFound
 from .utils import increment
+from .models import Person, DBSession
 
 
 @app.route('/')
@@ -29,3 +30,9 @@ def give_a_fuck(form_name, person_from, person_to=None):
         "output.html",
         content=content
     )
+
+
+@app.route("/stats")
+def stats():
+    people = DBSession.query(Person).all()
+    return render_template("stats.html", people=people)

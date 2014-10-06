@@ -4,6 +4,7 @@ from .models import Person, DBSession
 import transaction
 from sqlalchemy.orm.exc import NoResultFound
 
+
 def increment(person_from, person_to):
     with transaction.manager:
         try:
